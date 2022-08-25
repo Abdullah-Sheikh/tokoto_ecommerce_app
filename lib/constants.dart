@@ -10,4 +10,11 @@ const kPrimaryGradientColor = LinearGradient(
 const kSecondaryColor = Color(0xFF979797);
 const kTextColor = Color(0xFF757575);
 
+final RegExp emailValidatorRegExp = RegExp(
+    r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
 const kAnimationDuration = Duration(milliseconds: 200);
+const kEmailNullError = "Please enter your Email";
+const kInvalidEmail = "Please enter valid email";
+const kPassNullError = "Please enter your password";
+const kShortPassError = 'Password is too short';
+const kMatchPassError = "Password don't match";

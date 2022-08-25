@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tokoto/components/default_button.dart';
 import 'package:tokoto/constants.dart';
+import 'package:tokoto/screens/signin/signin_screen.dart';
 import 'package:tokoto/size_config.dart';
 
 import 'splash_content.dart';
@@ -66,25 +68,11 @@ class _BodyState extends State<Body> {
                     Spacer(
                       flex: 4,
                     ),
-                    SizedBox(
-                      width: double.infinity,
-                      height: getProportionateScreenHeight(56),
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          primary: kPrimaryColor,
-                          shape: RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.circular(20), // <-- Radius
-                          ),
-                        ),
-                        child: Text(
-                          "Continue",
-                          style: TextStyle(
-                              fontSize: getProportionateScreenWidth(18),
-                              color: Colors.white),
-                        ),
-                      ),
+                    defaultButton(
+                      text: "Continue",
+                      press: () {
+                        Navigator.pushNamed(context, SigninScreen.routeName);
+                      },
                     ),
                     Spacer(
                       flex: 2,
