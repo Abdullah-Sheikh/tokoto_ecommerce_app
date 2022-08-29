@@ -5,6 +5,7 @@ import 'package:tokoto/components/no_account_text.dart';
 import 'package:tokoto/components/social_card.dart';
 import 'package:tokoto/components/svg_suffix_icon.dart';
 import 'package:tokoto/screens/forget_password/forget_password_screen.dart';
+import 'package:tokoto/screens/login_success/login_success_screen.dart';
 import 'package:tokoto/size_config.dart';
 
 import '../../../constants.dart';
@@ -134,6 +135,7 @@ class _SigninFormState extends State<SigninForm> {
               press: () {
                 if (_formKey.currentState.validate()) {
                   _formKey.currentState.save();
+                  Navigator.pushNamed(context, LoginSuccess.routeName);
                 }
               })
         ],
@@ -163,11 +165,13 @@ class _SigninFormState extends State<SigninForm> {
           setState(() {
             errors.add(kEmailNullError);
           });
+          return "";
         } else if (!emailValidatorRegExp.hasMatch(value) &&
             !errors.contains(kInvalidEmail)) {
           setState(() {
             errors.add(kInvalidEmail);
           });
+          return "";
         }
         return null;
       },
@@ -208,10 +212,12 @@ class _SigninFormState extends State<SigninForm> {
           setState(() {
             errors.add(kPassNullError);
           });
+          return "";
         } else if (value.length < 8 && !errors.contains(kShortPassError)) {
           setState(() {
             errors.add(kShortPassError);
           });
+          return "";
         }
 
         return null;
