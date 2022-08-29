@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:tokoto/components/default_button.dart';
 import 'package:tokoto/components/form_error.dart';
+import 'package:tokoto/components/no_account_text.dart';
 import 'package:tokoto/components/social_card.dart';
 import 'package:tokoto/components/svg_suffix_icon.dart';
+import 'package:tokoto/screens/forget_password/forget_password_screen.dart';
 import 'package:tokoto/size_config.dart';
 
 import '../../../constants.dart';
@@ -63,22 +65,7 @@ class SignInBody extends StatelessWidget {
                 SizedBox(
                   height: getProportionateScreenHeight(20),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Don't have an account?",
-                      style:
-                          TextStyle(fontSize: getProportionateScreenWidth(16)),
-                    ),
-                    Text(
-                      "SignUp",
-                      style: TextStyle(
-                          fontSize: getProportionateScreenWidth(16),
-                          color: kPrimaryColor),
-                    )
-                  ],
-                )
+                NoAccountText()
               ],
             ),
           ),
@@ -131,7 +118,11 @@ class _SigninFormState extends State<SigninForm> {
               ),
               Text("Remember me"),
               Spacer(),
-              Text("forget Password")
+              GestureDetector(
+                onTap: () => Navigator.popAndPushNamed(
+                    context, ForgetPasswordScreen.routeName),
+                child: Text("forget Password"),
+              )
             ],
           ),
           FormError(errors: errors),
