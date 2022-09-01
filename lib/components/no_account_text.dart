@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tokoto/screens/signup/signup_screen.dart';
 
 import '../constants.dart';
 import '../size_config.dart';
@@ -17,10 +18,14 @@ class NoAccountText extends StatelessWidget {
           "Don't have an account?",
           style: TextStyle(fontSize: getProportionateScreenWidth(16)),
         ),
-        Text(
-          "SignUp",
-          style: TextStyle(
-              fontSize: getProportionateScreenWidth(16), color: kPrimaryColor),
+        GestureDetector(
+          onTap: () => {Navigator.pushNamed(context, SignupScreen.routeName)},
+          child: Text(
+            "SignUp",
+            style: TextStyle(
+                fontSize: getProportionateScreenWidth(16),
+                color: kPrimaryColor),
+          ),
         )
       ],
     );
